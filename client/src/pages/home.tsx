@@ -24,12 +24,12 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-b from-primary/5 to-background">
-        <div className="container px-4 md:px-6">
+      <section className="py-20 bg-gradient-to-b from-primary/5 via-background to-background dark:from-primary/10 dark:via-background dark:to-background">
+        <div className="container mx-auto px-4 md:px-6">
           <div className="flex flex-col items-center space-y-4 text-center">
             <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
               Smart Financial Solutions for
-              <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent"> Modern Life</span>
+              <span className="bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent dark:from-primary dark:to-primary/80"> Modern Life</span>
             </h1>
             <p className="mx-auto max-w-[700px] text-muted-foreground md:text-xl">
               Access instant credit card withdrawals and flexible postpaid wallet services. 
@@ -52,12 +52,12 @@ export default function Home() {
       </section>
 
       {/* Services Section */}
-      <section className="py-20 bg-white">
-        <div className="container px-4 md:px-6">
+      <section className="py-20 bg-background dark:bg-background">
+        <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold text-center mb-12">Our Services</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {services.map((service, index) => (
-              <Card key={index} className="group hover:shadow-lg transition-shadow">
+              <Card key={index} className="group hover:shadow-lg transition-shadow dark:bg-background/5 dark:hover:bg-background/10">
                 <CardHeader>
                   <div className="flex items-center gap-2 mb-2">
                     <service.icon className="h-6 w-6 text-primary" />
@@ -87,11 +87,11 @@ export default function Home() {
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container px-4 md:px-6">
+      <section className="py-20 bg-muted/50 dark:bg-muted/10">
+        <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-3xl font-bold text-center mb-12">Why Choose Us</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <Card className="bg-white">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <Card className="bg-background dark:bg-background/5">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <Shield className="h-12 w-12 text-primary mb-4" />
                 <h3 className="font-bold mb-2">Secure Transactions</h3>
@@ -100,7 +100,7 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-white">
+            <Card className="bg-background dark:bg-background/5">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <Clock className="h-12 w-12 text-primary mb-4" />
                 <h3 className="font-bold mb-2">Instant Processing</h3>
@@ -109,7 +109,7 @@ export default function Home() {
                 </p>
               </CardContent>
             </Card>
-            <Card className="bg-white">
+            <Card className="bg-background dark:bg-background/5">
               <CardContent className="p-6 flex flex-col items-center text-center">
                 <Phone className="h-12 w-12 text-primary mb-4" />
                 <h3 className="font-bold mb-2">24/7 Support</h3>
