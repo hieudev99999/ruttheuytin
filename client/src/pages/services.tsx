@@ -2,6 +2,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/componen
 import { Button } from "@/components/ui/button";
 import { Check, CreditCard, Wallet, Phone } from "lucide-react";
 import { Link } from "wouter";
+import { motion } from "framer-motion";
 
 const creditCards = [
   {
@@ -13,7 +14,9 @@ const creditCards = [
       "All major banks supported"
     ],
     processingTime: "1-24 hours",
-    fee: "2.5%"
+    fee: "2.5%",
+    phone: "+1 (555) 123-4567",
+    email: "visa@financeflow.com"
   },
   {
     type: "American Express",
@@ -24,7 +27,9 @@ const creditCards = [
       "Extended credit period"
     ],
     processingTime: "1-24 hours",
-    fee: "3%"
+    fee: "3%",
+    phone: "+1 (555) 123-4567",
+    email: "amex@financeflow.com"
   }
 ];
 
@@ -38,7 +43,9 @@ const walletPlans = [
       "No annual fee",
       "Mobile app access"
     ],
-    monthlyFee: "$0"
+    monthlyFee: "$0",
+    phone: "+1 (555) 123-4567",
+    email: "standard@financeflow.com"
   },
   {
     name: "Premium Wallet",
@@ -49,14 +56,42 @@ const walletPlans = [
       "Exclusive rewards",
       "24/7 premium support"
     ],
-    monthlyFee: "$9.99"
+    monthlyFee: "$9.99",
+    phone: "+1 (555) 123-4567",
+    email: "premium@financeflow.com"
   }
 ];
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5
+    }
+  }
+};
 
 export default function Services() {
   return (
     <div className="min-h-screen py-20">
-      <div className="container px-4 md:px-6">
+      <motion.div
+        className="container px-4 md:px-6"
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+      >
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold mb-4">Our Services</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -71,36 +106,40 @@ export default function Services() {
             <h2 className="text-3xl font-bold">Credit Card Withdrawal</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div className="grid md:grid-cols-2 gap-8" variants={containerVariants}>
             {creditCards.map((card, index) => (
-              <Card key={index} className="relative overflow-hidden">
-                <CardHeader>
-                  <CardTitle className="text-2xl">{card.type}</CardTitle>
-                  <p className="text-muted-foreground">
-                    Processing Time: {card.processingTime}
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-4">
-                    {card.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-primary" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6 p-4 bg-primary/5 rounded-lg">
-                    <p className="font-semibold">Processing Fee: {card.fee}</p>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Link href="/contact">
-                    <Button className="w-full">Apply Now</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
+              <motion.div key={index} variants={cardVariants}>
+                <Card className="relative overflow-hidden hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{card.type}</CardTitle>
+                    <p className="text-muted-foreground">
+                      Processing Time: {card.processingTime}
+                    </p>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-4">
+                      {card.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <Check className="h-4 w-4 text-primary" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 p-4 bg-primary/5 rounded-lg space-y-2">
+                      <p className="font-semibold">Processing Fee: {card.fee}</p>
+                      <p>Contact: {card.phone}</p>
+                      <p>Email: {card.email}</p>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full" asChild>
+                      <a href={`tel:${card.phone}`}>Contact Now</a>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
         </section>
 
         {/* Postpaid Wallet Section */}
@@ -110,45 +149,54 @@ export default function Services() {
             <h2 className="text-3xl font-bold">Postpaid Wallet</h2>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <motion.div className="grid md:grid-cols-2 gap-8" variants={containerVariants}>
             {walletPlans.map((plan, index) => (
-              <Card key={index} className="relative overflow-hidden">
-                <CardHeader>
-                  <CardTitle className="text-2xl">{plan.name}</CardTitle>
-                  <p className="text-muted-foreground">
-                    Credit Limit: {plan.creditLimit}
-                  </p>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-4">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <Check className="h-4 w-4 text-primary" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-6 p-4 bg-primary/5 rounded-lg">
-                    <p className="font-semibold">Monthly Fee: {plan.monthlyFee}</p>
-                  </div>
-                </CardContent>
-                <CardFooter>
-                  <Link href="/contact">
-                    <Button className="w-full">Get Started</Button>
-                  </Link>
-                </CardFooter>
-              </Card>
+              <motion.div key={index} variants={cardVariants}>
+                <Card className="relative overflow-hidden hover:shadow-lg transition-all duration-300">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{plan.name}</CardTitle>
+                    <p className="text-muted-foreground">
+                      Credit Limit: {plan.creditLimit}
+                    </p>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-4">
+                      {plan.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center gap-2">
+                          <Check className="h-4 w-4 text-primary" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-6 p-4 bg-primary/5 rounded-lg space-y-2">
+                      <p className="font-semibold">Monthly Fee: {plan.monthlyFee}</p>
+                      <p>Contact: {plan.phone}</p>
+                      <p>Email: {plan.email}</p>
+                    </div>
+                  </CardContent>
+                  <CardFooter>
+                    <Button className="w-full" asChild>
+                      <a href={`tel:${plan.phone}`}>Contact Now</a>
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
-          <div className="mt-12 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mt-12 text-center"
+          >
             <div className="inline-flex items-center gap-2 p-4 bg-primary/5 rounded-lg">
               <Phone className="h-5 w-5 text-primary" />
-              <p>Need help choosing? <Link href="/contact"><a className="text-primary font-medium">Contact our team</a></Link></p>
+              <p>Need help choosing? Call us at <a href="tel:+15551234567" className="text-primary font-medium">+1 (555) 123-4567</a></p>
             </div>
-          </div>
+          </motion.div>
         </section>
-      </div>
+      </motion.div>
     </div>
   );
 }
