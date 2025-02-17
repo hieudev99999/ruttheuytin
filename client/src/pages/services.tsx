@@ -87,7 +87,7 @@ export default function Services() {
   return (
     <div className="min-h-screen py-20">
       <motion.div
-        className="container px-4 md:px-6"
+        className="container px-4 md:px-6 max-w-7xl mx-auto"
         initial="hidden"
         animate="visible"
         variants={containerVariants}
@@ -101,12 +101,12 @@ export default function Services() {
 
         {/* Credit Card Withdrawal Section */}
         <section className="mb-20">
-          <div className="flex items-center gap-2 mb-8">
+          <div className="flex items-center gap-2 mb-8 justify-center">
             <CreditCard className="h-8 w-8 text-primary" />
             <h2 className="text-3xl font-bold">Credit Card Withdrawal</h2>
           </div>
 
-          <motion.div className="grid md:grid-cols-2 gap-8" variants={containerVariants}>
+          <motion.div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" variants={containerVariants}>
             {creditCards.map((card, index) => (
               <motion.div key={index} variants={cardVariants}>
                 <Card className="relative overflow-hidden hover:shadow-lg transition-all duration-300">
@@ -144,12 +144,12 @@ export default function Services() {
 
         {/* Postpaid Wallet Section */}
         <section>
-          <div className="flex items-center gap-2 mb-8">
+          <div className="flex items-center gap-2 mb-8 justify-center">
             <Wallet className="h-8 w-8 text-primary" />
             <h2 className="text-3xl font-bold">Postpaid Wallet</h2>
           </div>
 
-          <motion.div className="grid md:grid-cols-2 gap-8" variants={containerVariants}>
+          <motion.div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" variants={containerVariants}>
             {walletPlans.map((plan, index) => (
               <motion.div key={index} variants={cardVariants}>
                 <Card className="relative overflow-hidden hover:shadow-lg transition-all duration-300">

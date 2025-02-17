@@ -4,6 +4,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { motion } from "framer-motion";
 
 const faqs = [
   {
@@ -28,26 +29,64 @@ const faqs = [
   }
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      staggerChildren: 0.1
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 10 },
+  visible: {
+    opacity: 1,
+    y: 0
+  }
+};
+
 export default function FAQ() {
   return (
     <div className="min-h-screen py-20">
-      <div className="container px-4 md:px-6 max-w-4xl">
-        <h1 className="text-4xl font-bold text-center mb-12">
-          Frequently Asked Questions
-        </h1>
-        
-        <Accordion type="single" collapsible className="w-full">
-          {faqs.map((faq, index) => (
-            <AccordionItem key={index} value={`item-${index}`}>
-              <AccordionTrigger className="text-left">
-                {faq.question}
-              </AccordionTrigger>
-              <AccordionContent>
-                {faq.answer}
-              </AccordionContent>
-            </AccordionItem>
-          ))}
-        </Accordion>
+      <div className="container px-4 md:px-6 max-w-4xl mx-auto">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+          className="space-y-8"
+        >
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold mb-4">
+              Frequently Asked Questions
+            </h1>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Find answers to common questions about our credit card withdrawal and postpaid wallet services
+            </p>
+          </div>
+
+          <Accordion type="single" collapsible className="w-full">
+            {faqs.map((faq, index) => (
+              <motion.div
+                key={index}
+                variants={itemVariants}
+                className="overflow-hidden"
+              >
+                <AccordionItem value={`item-${index}`} className="border rounded-lg px-4 mb-4 data-[state=open]:bg-primary/5">
+                  <AccordionTrigger className="text-left py-4 hover:no-underline">
+                    <span className="font-medium">{faq.question}</span>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-4 text-muted-foreground">
+                    {faq.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              </motion.div>
+            ))}
+          </Accordion>
+        </motion.div>
       </div>
     </div>
   );

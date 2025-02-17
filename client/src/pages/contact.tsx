@@ -41,41 +41,9 @@ const itemVariants = {
 };
 
 export default function Contact() {
-  //The following code is removed because the edited code provides a different implementation.
-  // const { toast } = useToast();
-  // const form = useForm<InsertContact>({
-  //   resolver: zodResolver(insertContactSchema),
-  //   defaultValues: {
-  //     name: "",
-  //     email: "",
-  //     phone: "",
-  //     message: ""
-  //   }
-  // });
-  //
-  // const mutation = useMutation({
-  //   mutationFn: async (data: InsertContact) => {
-  //     return apiRequest("POST", "/api/contact", data);
-  //   },
-  //   onSuccess: () => {
-  //     toast({
-  //       title: "Message sent",
-  //       description: "We'll get back to you as soon as possible."
-  //     });
-  //     form.reset();
-  //   },
-  //   onError: () => {
-  //     toast({
-  //       variant: "destructive",
-  //       title: "Error",
-  //       description: "Something went wrong. Please try again."
-  //     });
-  //   }
-  // });
-
   return (
     <div className="min-h-screen py-20">
-      <div className="container px-4 md:px-6 max-w-4xl">
+      <div className="container px-4 md:px-6 max-w-4xl mx-auto">
         <motion.div
           initial="hidden"
           animate="visible"
@@ -93,7 +61,7 @@ export default function Contact() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto"
         >
           <motion.div variants={itemVariants}>
             <Card className="group hover:shadow-lg transition-all duration-300">
@@ -166,7 +134,7 @@ export default function Contact() {
           transition={{ delay: 0.6 }}
           className="mt-12 text-center"
         >
-          <div className="p-6 bg-primary/5 rounded-lg">
+          <div className="p-6 bg-primary/5 rounded-lg max-w-2xl mx-auto">
             <h3 className="font-semibold mb-2">Business Hours</h3>
             <p className="text-muted-foreground">
               Monday - Friday: 9:00 AM - 6:00 PM EST<br />
