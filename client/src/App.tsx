@@ -4,6 +4,7 @@ import { queryClient } from "./lib/queryClient";
 import { Toaster } from "@/components/ui/toaster";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Navigation } from "@/components/navigation";
+import { FloatingContact } from "@/components/floating-contact";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/home";
 import Services from "@/pages/services";
@@ -28,6 +29,7 @@ function App() {
       <QueryClientProvider client={queryClient}>
         <Navigation />
         <Router />
+        <FloatingContact />
         <Toaster />
       </QueryClientProvider>
     </ThemeProvider>
