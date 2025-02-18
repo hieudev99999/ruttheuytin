@@ -31,12 +31,6 @@ export default defineConfig({
   build: {
     outDir: path.resolve(__dirname, "dist"),
     assetsDir: 'assets',
-    rollupOptions: {
-      input: {
-        main: './client/src/main.tsx', // Chỉ định entry point tùy chỉnh
-        index: './client/index.html', // Chỉ định file index.html nếu cần
-      },
-    },
     emptyOutDir: true,
   },
 });

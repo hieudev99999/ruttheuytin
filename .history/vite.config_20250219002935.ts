@@ -34,7 +34,6 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: './client/src/main.tsx', // Chỉ định entry point tùy chỉnh
-        index: './client/index.html', // Chỉ định file index.html nếu cần
       },
     },
     emptyOutDir: true,
