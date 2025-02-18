@@ -1,4 +1,4 @@
-node --version
+node --version  # Phải hiển thị v18.x.x
 npm --version
 ```
 
@@ -10,44 +10,55 @@ npm --version
 cd đường-dẫn-đến-thư-mục-project
 ```
 
-### 3. Cài đặt các dependencies
-1. Mở Command Prompt với quyền Administrator
+### 3. Cài đặt dependencies
+1. Mở Command Prompt 
 2. Di chuyển đến thư mục project
-3. Chạy lệnh sau để cài đặt các dependencies:
-```bash
+3. Chạy lệnh sau để cài đặt dependencies:
+```bash 
 npm install
 ```
 
-### 4. Chạy project trong môi trường development
+### 4. Chạy project
 1. Sau khi cài đặt xong, chạy lệnh:
 ```bash
 npm run dev
 ```
-2. Đợi một lát để server khởi động
-3. Truy cập website tại địa chỉ: `http://localhost:5000`
-
-### 5. Build và chạy phiên bản production
-1. Để build project:
-```bash
-npm run build
-```
-2. Để chạy phiên bản production:
-```bash
-npm start
-```
+2. Đợi cho đến khi thấy thông báo "serving on port 5000"
+3. Mở trình duyệt và truy cập: http://localhost:5000
 
 ## Xử lý lỗi thường gặp
 
 ### Lỗi "Port 5000 already in use"
 1. Mở Command Prompt với quyền Administrator
-2. Chạy lệnh sau để tìm và dừng process đang sử dụng port 5000:
+2. Chạy các lệnh sau:
 ```bash
 netstat -ano | findstr :5000
 taskkill /PID <ProcessId> /F
 ```
 
-### Lỗi liên quan đến node_modules
+### Lỗi node_modules
 1. Xóa thư mục node_modules và file package-lock.json
 2. Chạy lại lệnh:
+```bash 
+npm install
+```
+
+### Lỗi "ERR_MODULE_NOT_FOUND"
+1. Kiểm tra phiên bản Node.js có phải v18 không:
+```bash
+node --version
+```
+2. Nếu không phải, cài đặt lại Node.js 18 LTS
+
+### Lỗi khác
+Nếu gặp lỗi khác, hãy thử các bước sau:
+1. Xóa thư mục node_modules
+2. Xóa file package-lock.json
+3. Chạy lại lệnh cài đặt:
 ```bash
 npm install
+```
+4. Khởi động lại máy tính
+5. Chạy lại project:
+```bash
+npm run dev
