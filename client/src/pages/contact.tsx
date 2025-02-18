@@ -13,10 +13,10 @@ import { Phone, Mail, Globe, MapPin } from "lucide-react";
 import { motion } from "framer-motion";
 
 const contactInfo = {
-  phone: "+1 (555) 123-4567",
-  email: "support@financeflow.com",
-  website: "www.financeflow.com",
-  address: "123 Financial District, New York, NY 10004"
+  phone: "0559689388",
+  email: "dichvutrasau6868@gmail.com",
+  website: "https://zalo.me/0559689388",
+  address: "Việt Nam"
 };
 
 const containerVariants = {
@@ -50,10 +50,9 @@ export default function Contact() {
           variants={containerVariants}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl font-bold mb-4">Contact Us</h1>
+          <h1 className="text-4xl font-bold mb-4">Thông Tin Liên Hệ</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Get in touch with our team for immediate assistance with credit card withdrawals
-            or postpaid wallet services.
+          Hãy liên hệ với chúng tôi để được hỗ trợ ngay lập tức về dịch vụ hỗ trợ rút tiền từ hạn mức thẻ tín dụng hoặc ví trả sau.
           </p>
         </motion.div>
 
@@ -71,7 +70,7 @@ export default function Contact() {
                     <Phone className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Phone</h3>
+                    <h3 className="font-semibold mb-1">Số Điện Thoại</h3>
                     <p className="text-muted-foreground">{contactInfo.phone}</p>
                   </div>
                 </div>
@@ -103,8 +102,8 @@ export default function Contact() {
                     <Globe className="h-6 w-6" />
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1">Website</h3>
-                    <p className="text-muted-foreground">{contactInfo.website}</p>
+                    <h3 className="font-semibold mb-1">Zalo</h3>
+                    <a href={contactInfo.website} target="_blank" className="text-muted-foreground">{contactInfo.website}</a>
                   </div>
                 </div>
               </CardContent>
@@ -135,11 +134,10 @@ export default function Contact() {
           className="mt-12 text-center"
         >
           <div className="p-6 bg-primary/5 rounded-lg max-w-2xl mx-auto">
-            <h3 className="font-semibold mb-2">Business Hours</h3>
+            <h3 className="font-semibold mb-2">Giờ Làm Việc</h3>
             <p className="text-muted-foreground">
-              Monday - Friday: 9:00 AM - 6:00 PM EST<br />
-              Saturday: 10:00 AM - 4:00 PM EST<br />
-              Sunday: Closed
+              Thứ 2 đến Chủ Nhật<br />
+              Hỗ trợ 24/7
             </p>
           </div>
         </motion.div>

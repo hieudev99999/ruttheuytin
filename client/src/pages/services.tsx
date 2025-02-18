@@ -93,9 +93,9 @@ export default function Services() {
         variants={containerVariants}
       >
         <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold mb-4">Our Services</h1>
+          <h1 className="text-4xl font-bold mb-4">Dịch Vụ Của Chúng Tôi</h1>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Choose from our range of financial services designed to meet your needs
+          Hãy lựa chọn dịch vụ của chúng tôi được thiết kế để đáp ứng nhu cầu của bạn
           </p>
         </div>
 
@@ -103,7 +103,7 @@ export default function Services() {
         <section className="mb-20">
           <div className="flex items-center gap-2 mb-8 justify-center">
             <CreditCard className="h-8 w-8 text-primary" />
-            <h2 className="text-3xl font-bold">Credit Card Withdrawal</h2>
+            <h2 className="text-3xl font-bold">Rút Thẻ Tín Dụng</h2>
           </div>
 
           <motion.div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto" variants={containerVariants}>

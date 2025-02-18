@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, X } from 'lucide-react';
+import { Phone, X, Contact } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 
 const contactInfo = {
-  phone: "+1 (555) 123-4567",
-  email: "support@financeflow.com"
+  phone: "0559689388",
+  zalo: "https://zalo.me/0559689388"
 };
 
 export function FloatingContact() {
@@ -25,7 +25,7 @@ export function FloatingContact() {
             <Card className="w-[300px]">
               <CardContent className="p-4">
                 <div className="flex justify-between items-center mb-4">
-                  <h3 className="font-semibold">Contact Us</h3>
+                  <h3 className="font-semibold">Liên Hệ</h3>
                   <Button 
                     variant="ghost" 
                     size="icon"
@@ -35,19 +35,18 @@ export function FloatingContact() {
                   </Button>
                 </div>
                 <div className="space-y-3">
-                  <a 
-                    href={`tel:${contactInfo.phone}`}
+                  <span
                     className="flex items-center gap-2 p-2 hover:bg-primary/5 rounded-lg transition-colors"
                   >
                     <Phone className="h-4 w-4 text-primary" />
                     <span>{contactInfo.phone}</span>
-                  </a>
+                  </span>
                   <a 
-                    href={`mailto:${contactInfo.email}`}
+                    href={`${contactInfo.zalo}`}
                     className="flex items-center gap-2 p-2 hover:bg-primary/5 rounded-lg transition-colors"
                   >
-                    <Phone className="h-4 w-4 text-primary" />
-                    <span>{contactInfo.email}</span>
+         <Contact className="h-4 w-4 text-primary" />
+                    <span>{contactInfo.zalo}</span>
                   </a>
                 </div>
               </CardContent>

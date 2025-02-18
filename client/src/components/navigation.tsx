@@ -1,6 +1,15 @@
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
-import { CreditCard, Wallet, Phone, HelpCircle, Moon, Sun, Menu, X } from "lucide-react";
+import {
+  CreditCard,
+  Wallet,
+  Phone,
+  HelpCircle,
+  Moon,
+  Sun,
+  Menu,
+  X,
+} from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
 import { useState } from "react";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -10,9 +19,9 @@ export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
 
   const menuItems = [
-    { href: "/services", icon: Wallet, label: "Services" },
-    { href: "/faq", icon: HelpCircle, label: "FAQ" },
-    { href: "/contact", icon: Phone, label: "Contact Us" },
+    // { href: "/services", icon: Wallet, label: "Dịch Vụ" },
+    { href: "/faq", icon: HelpCircle, label: "Giải Đáp" },
+    { href: "/contact", icon: Phone, label: "Liên Hệ" },
   ];
 
   return (
@@ -20,11 +29,12 @@ export function Navigation() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16 items-center">
           <div className="flex items-center">
-            <Link href="/">
-              <a className="flex items-center gap-2 text-primary font-bold text-xl">
-                <CreditCard className="h-6 w-6" />
-                FinanceFlow
-              </a>
+            <Link
+              href="/"
+              className="flex items-center gap-2 text-primary font-bold text-xl"
+            >
+              <CreditCard className="h-6 w-6" />
+              Rút Thẻ Uy Tín
             </Link>
           </div>
 
